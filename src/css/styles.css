@@ -10,11 +10,45 @@ body {
   background-color: #fafafa;
   color: #212121;
   line-height: 1.5;
+  background-image: url('../images/world.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 
 #search-box {
   font: inherit;
   padding: 8px;
   max-width: 320px;
   margin-bottom: 16px;
+  margin-left: 20px;
+  border-radius: 5px;
+  font-family: Ubuntu;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin-left: 20px;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: Ubuntu; 
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-top: 20px;
+  font-family: Ubuntu;
+}
+
+p {
+  display: flex;
+  margin-left: 20px;
+  font-weight: bold;
+  font-family: Ubuntu;
+}
+
+#search-box:focus{
+  box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
 }
