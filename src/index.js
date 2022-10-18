@@ -5,11 +5,10 @@ import { fetchCountries } from './fetchCountries';
 
 const DEBOUNCE_DELAY = 300;
 
-const inputCountry = document.querySelector('#search-box');
+const countryInput = document.querySelector('#search-box');
 const countryList = document.querySelector('.country-list');
 const countryInfo = document.querySelector('.country-info');
-
-//========FUNCTIONS==================
+ 
 const clearContent = () => {
   countryInfo.innerHTML = '';
   countryList.innerHTML = '';
@@ -43,8 +42,7 @@ const searchCountry = event => {
       return error;
     });
 };
-
-//==========RENDERING 1 COUNTRY=========================
+ 
 const renderCountryList = country => {
   const markup = country
     .map(({ name, flags }) => {
@@ -53,14 +51,13 @@ const renderCountryList = country => {
     .join('');
   countryList.innerHTML = markup;
 };
-
-//=========RENDERING 10 OR LESS COUNTRIES=================
+ 
 const renderCountryInfo = country => {
   const markup = country
     .map(({ name, capital, population, flags, languages }) => {
       return `<section><h1><img src="${flags.svg}" alt="${
         name.official
-      }" width="100" height="60">&nbsp ${name.official}</h1>
+      }" width="50" height="30">&nbsp ${name.official}</h1>
       <p><span>Capital: </span>&nbsp ${capital}</p>
       <p><span>Population:</span>&nbsp ${population}</p>
       <p><span>Languages:</span>&nbsp ${Object.values(languages)}</p><section>`;
@@ -68,6 +65,5 @@ const renderCountryInfo = country => {
     .join('');
   countryInfo.innerHTML = markup;
 };
-
-//=========EVENT LISTENER============
-inputCountry.addEventListener('input', debounce(searchCountry, DEBOUNCE_DELAY));
+ 
+countryInput.addEventListener('input', debounce(searchCountry, DEBOUNCE_DELAY));
